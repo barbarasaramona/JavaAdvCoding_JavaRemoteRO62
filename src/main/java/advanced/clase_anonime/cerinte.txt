@@ -1,0 +1,70 @@
+1)
+Creați clasa Car cu următoarele proprietăți:
+- price
+- type
+- year (anul fabricației)
+
+Tipul este reprezentat printr-un enum CarType. Acesta conține trei valori: Mercedes, Fiat și Skoda.
+Prețul și anul vor fi de tipul integer.
+
+Creați un constructor cu toti cei trei parametri, în ordinea din enunț și suprascrieți metoda toString()
+pentru afișare în felul următor: Car{price=20000, carType=SKODA, year=2019}.
+
+Creați interfața Offer ce conține metoda: int getDiscount(Car car);.
+
+Creați clasa Dealership care se va ocupa cu aplicarea ofertelor pentru mașini.
+
+2)
+În clasa Dealership creați doua clase interne private care implementează Offer:
+- BrandOffer - calculează un discount în funcție de tipul mașinii:
+        Mercedes: discount 5%;
+        Fiat: discount 10%;
+        Skoda: discount 15%;
+- DealerOffer - calculează un discount în funcție de vechimea mașinii:
+        Mercedes: discount 300 pentru fiecare an de vechime;
+        Fiat: discount 100 pentru fiecare an de vechime;
+        Skoda: discount 150 pentru fiecare an de vechime;
+
+Adăugați o metodă în clasa Dealership care oferă prețul mașinii după aplicarea discount-urilor din oferte: getFinalPrice(Car car).
+Aplicați pe obiectul car primit ca argument cele trei oferte in ordinea: BrandOffer, DealerOffer.
+Metoda va returna prețul final după aplicarea ofertelor.
+
+Testare oferte: Creati 2 obiecte Car pentru fiecare tip de mașină cu urmatoarele valori:.
+    Mercedes:
+        Pret: 20000, An: 2010;
+        Pret: 35000, An: 2015;
+    Fiat:
+        Pret: 3500, An: 2008;
+        Pret: 7000, An: 2010;
+    Skoda:
+        Pret: 12000, An: 2015;
+        Pret: 25000, An: 2021;
+
+Creati un obiect de tip Dealership.
+Obțineți și afișați prețul oferit de Dealership(folosind metoda getFinalPrice) pentru fiecare obiect.
+De fiecare data cand se aplica o oferta asupra unui obiect de tip Car se va afisa un mesaj de tipul:
+“Applying x discount : y ”, unde: x reprezinta oferta care a fost aplicata (Brand, Dealer,Client),
+y reprezinta discount-ul in % sau euro.
+
+3)
+Aăugați în clasa Dealership metoda void negotiate(Car car, Offer offer). Aceasta permite clientului să propună un discount.
+
+În metoda main apelați negotiate dând ca parametru oferta sub formă de clasă anonimă.
+Implementarea ofertei clientului reprezinta returnarea unui discount de 5%.
+Pentru testare folositi urmatorul obiect Car:
+- Pret: 20000
+- Tip: Mercedes
+- An: 2019
+
+4)
+Testați folosirea expresiilor lambda pe următorul caz: pe o listă de obiecte de tip Car cu prețuri variate,
+eliminați toate mașinile care au prețul peste 25000.
+Afișați lista înainte și după modificare.
+Pentru lista folositi urmatoarele obiecte Car:
+- Mercedes:
+    Pret: 30000, An: 2019;
+    Pret: 50000, An: 2021;
+- Fiat:
+    Pret: 10000, An: 2018;
+- Skoda:
+    Pret: 20000, An: 2019;
