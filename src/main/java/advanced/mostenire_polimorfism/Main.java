@@ -1,6 +1,4 @@
-package org.example.mostenire_polimorfism;
-
-import java.util.*;
+package advanced.mostenire_polimorfism;
 
 public class Main {
     public static void main(String[] args) {

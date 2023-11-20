@@ -1,4 +1,4 @@
-package org.example.mostenire_polimorfism;
+package advanced.mostenire_polimorfism;
 
 public class Programmer extends Employee {
 
