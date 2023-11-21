@@ -46,17 +46,24 @@ public class Dealership {
     BrandOffer brandOffer = new BrandOffer();
     int brandOfferDiscount = brandOffer.getDiscount(car);
     car.setPrice((int)((car.getPrice() * (1 - brandOfferDiscount / 100.))));
+    // first choice for displaying solution, then abandoned
+    System.out.println("Applying BrandOffer discount: " + brandOfferDiscount + "%");
     //
     DealerOffer dealerOffer = new DealerOffer();
     int dealerOfferDiscount = dealerOffer.getDiscount(car);
     car.setPrice(car.getPrice() - dealerOfferDiscount);
+    // first choice for displaying solution, then abandoned
+    System.out.println("Applying DealerOffer discount: " + dealerOfferDiscount + " euro");
     //
     return car.getPrice();
   }
 
   void negotiate(Car car, Offer offer) {
     getFinalPrice(car);
-    car.setPrice((int)((car.getPrice() * (1 - offer.getDiscount(car) / 100.))));
+    int clientOfferDiscount = offer.getDiscount(car);
+    car.setPrice((int)((car.getPrice() * (1 - clientOfferDiscount / 100.))));
+    // first choice for displaying solution, then abandoned
+    System.out.println("Applying ClientOffer discount: " + clientOfferDiscount + "%");
     System.out.println("Final price: " + car.getPrice());
   }
 }
