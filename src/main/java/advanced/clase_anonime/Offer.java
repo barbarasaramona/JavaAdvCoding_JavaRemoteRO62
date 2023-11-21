@@ -1,6 +1,6 @@
 package advanced.clase_anonime;
 
-public interface Offer {
+public interface Offer{
 
-    public int getDiscount(Car car);
+    public int getDiscount(Car car) throws BrandNotFoundException;
 }

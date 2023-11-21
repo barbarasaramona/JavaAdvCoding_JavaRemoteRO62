@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Car mercedes = new Car(20000, CarType.MERCEDES, 2010);
+        Car mercedes = new Car(20000, null, 2010);
         Car mercedes1 = new Car(35000, CarType.MERCEDES, 2015);
 
         Car fiat = new Car(3500, CarType.FIAT, 2008);
@@ -15,14 +15,22 @@ public class Main {
 
         Dealership dealership = new Dealership();
 
-        System.out.println(dealership.getFinalPrice(mercedes));
+        try {
+            System.out.println(dealership.getFinalPrice(mercedes));
+        } catch (BrandNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
 
-        dealership.negotiate(mercedes1, new Offer() {
-            @Override
-            public int getDiscount(Car car) {
-                return 5;
-            }
-        });
+        try {
+            dealership.negotiate(mercedes1, new Offer() {
+                @Override
+                public int getDiscount(Car car) {
+                    return 5;
+                }
+            });
+        } catch (BrandNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
 
         List<Car> cars = new ArrayList<>();
         cars.add(mercedes);
