@@ -31,7 +31,16 @@ public class Main {
     cars.add(skoda);
     cars.add(skoda1);
     System.out.println(cars.stream().map(car -> "Car { price = " + car.getPrice() + " }").toList());
-    cars.removeIf(car -> car.getPrice() > 25000);
-    System.out.println(cars.stream().map(car -> "Car { price = " + car.getPrice() + " }").toList());
+    cars.removeIf(Main::filterCarsCallBack);
+    Main main = new Main();
+    System.out.println(cars.stream().map(main::mapCarsToPriceCallBack).toList());
+  }
+
+  public static boolean filterCarsCallBack(Car car) {
+    return 25_000 < car.getPrice();
+  }
+
+  public String mapCarsToPriceCallBack(Car car) {
+    return "Car { price = " + car.getPrice() + " }";
   }
 }
