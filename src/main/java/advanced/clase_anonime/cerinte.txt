@@ -26,7 +26,7 @@ Creați clasa Dealership care se va ocupa cu aplicarea ofertelor pentru mașini.
         Skoda: discount 150 pentru fiecare an de vechime;
 
 Adăugați o metodă în clasa Dealership care oferă prețul mașinii după aplicarea discount-urilor din oferte: getFinalPrice(Car car).
-Aplicați pe obiectul car primit ca argument cele trei oferte in ordinea: BrandOffer, DealerOffer.
+Aplicați pe obiectul car primit ca argument cele trei oferte in ordinea: BrandOffer, DealerOffer, ClientOffer(vezi mai jos).
 Metoda va returna prețul final după aplicarea ofertelor.
 
 Testare oferte: Creati 2 obiecte Car pentru fiecare tip de mașină cu urmatoarele valori:.
@@ -43,7 +43,7 @@ Testare oferte: Creati 2 obiecte Car pentru fiecare tip de mașină cu urmatoare
 Creati un obiect de tip Dealership.
 Obțineți și afișați prețul oferit de Dealership(folosind metoda getFinalPrice) pentru fiecare obiect.
 De fiecare data cand se aplica o oferta asupra unui obiect de tip Car se va afisa un mesaj de tipul:
-“Applying x discount : y ”, unde: x reprezinta oferta care a fost aplicata (Brand, Dealer,Client),
+“Applying x discount : y ”, unde: x reprezinta oferta care a fost aplicata (Brand, Dealer, Client),
 y reprezinta discount-ul in % sau euro.
 
 3)
