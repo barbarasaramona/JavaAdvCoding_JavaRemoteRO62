@@ -15,7 +15,7 @@ public class Main {
       try {
           System.out.println("Final price: " + dealership.getFinalPrice(mercedes));
       } catch (BrandNotFoundException e) {
-          throw new RuntimeException(e);
+        System.out.println(e.getMessage());
       }
       //
       try {
@@ -28,7 +28,7 @@ public class Main {
             }
           });
       } catch (BrandNotFoundException e) {
-          throw new RuntimeException(e);
+        System.out.println(e.getMessage());
       }
       //
     List<Car> cars = new ArrayList<>();
