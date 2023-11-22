@@ -1,10 +1,9 @@
 package advanced.clase_anonime;
 
 import java.time.*;
-import java.util.prefs.*;
 
 public class Dealership {
-    private class BrandOffer implements Offer {
+  private class BrandOffer implements Offer {
 
         @Override
         public int getDiscount(Car car) throws BrandNotFoundException{
@@ -24,7 +23,7 @@ public class Dealership {
         }
     }
 
-    private class DealerOffer implements Offer{
+  private class DealerOffer implements Offer {
 
         @Override
         public int getDiscount(Car car) throws BrandNotFoundException{
@@ -44,19 +43,28 @@ public class Dealership {
         }
     }
 
-    public int getFinalPrice(Car car) throws BrandNotFoundException {
-        BrandOffer brandOffer = new BrandOffer();
-        int brandOfferDiscount = brandOffer.getDiscount(car);
-        car.setPrice((int) (car.getPrice() * (1- brandOfferDiscount/100.)));
+  public int getFinalPrice(Car car) throws BrandNotFoundException{
+    BrandOffer brandOffer = new BrandOffer();
+    int brandOfferDiscount = brandOffer.getDiscount(car);
+    car.setPrice((int)((car.getPrice() * (1 - brandOfferDiscount / 100.))));
+    // first choice for displaying solution, then abandoned
+    System.out.println("Applying BrandOffer discount: " + brandOfferDiscount + "%");
+    //
+    DealerOffer dealerOffer = new DealerOffer();
+    int dealerOfferDiscount = dealerOffer.getDiscount(car);
+    car.setPrice(car.getPrice() - dealerOfferDiscount);
+    // first choice for displaying solution, then abandoned
+    System.out.println("Applying DealerOffer discount: " + dealerOfferDiscount + " euro");
+    //
+    return car.getPrice();
+  }
 
-        DealerOffer dealerOffer = new DealerOffer();
-        int dealerOfferDiscount = dealerOffer.getDiscount(car);
-        car.setPrice(car.getPrice() - dealerOfferDiscount);
-
-        return car.getPrice();
-    }
-
-    void negotiate(Car car, Offer offer) throws BrandNotFoundException {
-        System.out.println("Client offer discount:" + offer.getDiscount(car));
-    }
+  void negotiate(Car car, Offer offer) throws BrandNotFoundException {
+    getFinalPrice(car);
+    int clientOfferDiscount = offer.getDiscount(car);
+    car.setPrice((int)((car.getPrice() * (1 - clientOfferDiscount / 100.))));
+    // first choice for displaying solution, then abandoned
+    System.out.println("Applying ClientOffer discount: " + clientOfferDiscount + "%");
+    System.out.println("Final price: " + car.getPrice());
+  }
 }
