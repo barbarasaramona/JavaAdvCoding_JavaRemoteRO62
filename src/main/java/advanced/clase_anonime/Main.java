@@ -12,25 +12,27 @@ public class Main {
     Car skoda1 = new Car(25000, CarType.SKODA, 2021);
     //
     Dealership dealership = new Dealership();
-      try {
-          System.out.println("Final price: " + dealership.getFinalPrice(mercedes));
-      } catch (BrandNotFoundException e) {
-        System.out.println(e.getMessage());
-      }
-      //
-      try {
-          dealership.negotiate(mercedes1, new Offer() {
-            @Override
-            public int getDiscount(Car car) {
-              int discount = 5;
-              System.out.println("Applying ClientOffer discount: " + discount + "%");
-              return discount;
-            }
-          });
-      } catch (BrandNotFoundException e) {
-        System.out.println(e.getMessage());
-      }
-      //
+    try {
+      System.out.println("Final price: " + dealership.getFinalPrice(mercedes));
+    }
+    catch (BrandNotFoundException e) {
+      System.out.println(e.getMessage());
+    }
+    //
+    try {
+      dealership.negotiate(mercedes1, new Offer() {
+        @Override
+        public int getDiscount(Car car) {
+          int discount = 5;
+          System.out.println("Applying ClientOffer discount: " + discount + "%");
+          return discount;
+        }
+      });
+    }
+    catch (BrandNotFoundException e) {
+      System.out.println(e.getMessage());
+    }
+    //
     List<Car> cars = new ArrayList<>();
     cars.add(mercedes);
     cars.add(mercedes1);

@@ -1,4 +1,4 @@
-Maike, 900
-Mary, 9000
+Mike, 900
+Mary, 950
 Jake, 800
 Jane, 700

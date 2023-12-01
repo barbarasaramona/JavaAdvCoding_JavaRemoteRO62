@@ -3,17 +3,23 @@ package advanced.generics;
 import java.util.*;
 
 public class Sort {
-    public static <T extends Comparable<T>> T[] sort(T[] array) {
-        T[] newArray = Arrays.copyOf(array, array.length);
-        for (int i = 0; i < newArray.length-1; i++ ) {
-            for (int j = 0; j < newArray.length - i - 1; j++) {
-                if (newArray[j].compareTo(newArray[j+1]) > 0) {
-                   T temp = newArray[j];
-                   newArray[j] = newArray[j+1];
-                   newArray[j+1] = temp;
-                }
-            }
+  public static <T extends Comparable<T>> T[] sort(T[] array) {
+    T[] newArray = Arrays.copyOf(array, array.length);
+    int parsingSize = newArray.length;
+    boolean swapped;
+    do {
+      --parsingSize;
+      swapped = false;
+      for (int index = 0; index < parsingSize; index++) {
+        if (0 < newArray[index].compareTo(newArray[index + 1])) {
+          T temp = newArray[index];
+          newArray[index] = newArray[index + 1];
+          newArray[index + 1] = temp;
+          swapped = true;
         }
-        return newArray;
+      }
     }
+    while (swapped);
+    return newArray;
+  }
 }
