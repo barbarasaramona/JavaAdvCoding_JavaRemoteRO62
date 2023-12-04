@@ -10,8 +10,8 @@ Pentru a exemplifica comunicarea dintre doua thread-uri, sa se creeze clasa Chat
 -> public synchronized void question(String msg);
 -> public synchronized void answer(String msg);
 Metodele vor fi folosite pentru afisarea schimbului de mesaje dintre cele doua fire de executie.
-Pe baza clasei Chat, sa se implementeze doua thread-uri (Thread1 si Thread2) astfel incat sa fie realizata comunicarea
-de mai jos:
+Pe baza clasei Chat, sa se implementeze doua thread-uri (Thread1 si Thread2) folosind interfata Runnable,
+astfel incat sa fie realizata comunicarea de mai jos:
 (Thread 1) Hi
 (Thread 2) Hi
 (Thread 1) How are you ?
