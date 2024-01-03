@@ -1,0 +1,30 @@
+======   Interthread communication
+1) Comunicarea între firele de executie este importantă atunci când intr-o aplicație două sau mai multe fire fac
+schimb de informații.
+Există trei metode simple care fac posibilă comunicarea firelor:
+-> public void wait() - determină firul curent să aștepte până când un alt fir invocă notify().
+-> public void notify() - trezește un singur fir care așteaptă.
+-> public void notifyAll() - trezește toate firele care au apelat wait() pe același obiect.
+Toate cele trei metode pot fi apelate numai dintr-un context sincronizat.
+
+Pentru a exemplifica comunicarea dintre doua thread-uri, sa se creeze clasa Chat care va cuprinde doua metode:
+-> public synchronized void question(String msg);
+-> public synchronized void answer(String msg);
+Metodele vor fi folosite pentru afisarea schimbului de mesaje dintre cele doua fire de executie.
+Pe baza clasei Chat, sa se implementeze doua thread-uri (Thread1 si Thread2) folosind interfata Runnable,
+astfel incat sa fie realizata comunicarea de mai jos:
+
+(Thread 1) Hi !
+(Thread 2) Hi !
+(Thread 1) How are you ?
+(Thread 2) I am good, what about you ?
+(Thread 1) I am also doing fine.
+(Thread 2) Great !
+
+======   Deadlock
+2) Stiind ca un Deadlock descrie o situație în care două sau mai multe fire de executie sunt blocate pentru totdeauna,
+așteptându-se unul pe celălalt, sa se realizeze un program Java cu doua fire care ar putea intampina condiția de blocare
+deoarece firele de executie vor avea nevoie de aceleași resurse, dar le vor obține în ordine diferită.
+Cele doua thread-uri vor fi create folosind clasa Thread.
+
+3) Pe exemplul de Deadlock de mai sus, sa se gaseasca o solutie pentru a evita situatia de blocare a celor doua thread-uri.

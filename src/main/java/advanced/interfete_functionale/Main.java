@@ -48,7 +48,7 @@ public class Main {
     //
     Supplier<Double> doubleSupplier = () -> 12 + 21.4;
     // what happens behind the scene
-//    Supplier<Double> doubleSupplier1 = new Supplier<>() {
+//    Supplier<Double> doubleSupplier = new Supplier<>() {
 //      @Override
 //      public Double get() {
 //        return 12 + 21.4;
